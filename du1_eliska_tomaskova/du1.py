@@ -26,16 +26,16 @@ def kolecko():
     
     # Pokud uživatel zadá jiné souřadnice než 1 až 3, je vyzýván, dokud je nezadá správně
     while True:
-        x1 = float(input("Zadej souřadnice x: "))
-        y1 = float(input("Zadej souřadnice y: "))
+        x1 = float(input("Zadejte souřadnice x: "))
+        y1 = float(input("Zadejte souřadnice y: "))
         if ((x1 in (1,2,3)) and (y1 in (1,2,3))):
             break 
         else:
             print("Zadali jste nesprávné souřadnice. Zkuste to znovu.")
 
     # Želva se přemístí na souřadnice zadané uživatelem
-    # Mřížka je definována tak, že souřadnice [1,1] jsou v levém horním rohu
-    # Kolečko se začne vykreslovat vždy uprostřed daného čtverce v 1/2 osy x a v 1/10 osy y -> kolečko je tak hezky na středu
+    # Předpisy ve fuknci setpos převádí souřadnice zadané uživatelem na skutečné souřadnice
+    # Mřížka je definována tak, že políčko [1,1] je v levém horním rohu
     turtle.setpos(strana*x1-strana/2,-strana*y1+3.1*strana)  
     turtle.setheading(0)
     turtle.pendown()
@@ -48,8 +48,8 @@ def krizek ():
 
     # To stejné jak pro kolečko platí i pro křížek   
     while True:
-        x2 = float(input("Zadej souřadnice x: "))
-        y2 = float(input("Zadej souřadnice y: "))
+        x2 = float(input("Zadejte souřadnice x: "))
+        y2 = float(input("Zadejte souřadnice y: "))
         if ((x2 in (1,2,3)) and (y2 in (1,2,3))):
             break 
         else:
@@ -78,7 +78,7 @@ for a in range (4):
     kolecko()
     krizek()
 
-# Mřížka má 9 polí, končí tedy hráč který začínal
+# Mřížka má 9 polí, končí tedy hráč, který začínal
 kolecko()
     
 print("Hra skončila.")
