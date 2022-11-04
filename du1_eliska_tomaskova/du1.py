@@ -1,3 +1,5 @@
+# Hra piškovrky ve čtvercové síti, mřížka je definována tak, že políčko [1,1] je v levém horním rohu
+
 import turtle
 
 # Definování velikosti hrací plochy uživatelem
