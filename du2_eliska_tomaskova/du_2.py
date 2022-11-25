@@ -1,5 +1,5 @@
 import csv
-import math
+
 list = []
 
 
@@ -8,13 +8,20 @@ with open ("data.csv", encoding="utf-8",newline='') as f:
     for row in reader:
         list.append(row[5])
 
-list2 = []
+list_dva = []
 for element in list:
-    list2.append(float(element))
+    list_dva.append(float(element))
+
+sublist = [list_dva[x:x+7] for x in range(0, len(list_dva), 7)]
 
 
-average = (sum(list2[0:6]))/7
-print(average)
+for x in sublist:
+    print(sum(x)/len(x))
 
+
+
+
+
+    
 
 
