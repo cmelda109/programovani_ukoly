@@ -80,6 +80,8 @@ for a in range (A*B//2):
 
 if A*B % 2 == 1: # Pokud je políček lichý počet, hraje ještě jednou první hráč
     krizek()
+else:
+    continue
    
 print("Hra skončila.")
 turtle.exitonclick()
