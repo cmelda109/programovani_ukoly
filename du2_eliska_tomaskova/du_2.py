@@ -1,4 +1,17 @@
 import csv
+import datetime
+
+try:
+    with open("vstupni_data.csv", encoding="utf8") as fcsvinfile,\
+            open("vystup_7dni.csv", "w", encoding="utf8") as f,\
+                open("vystup_rok.csv", "w", encoding="utf8") as f:
+        reader = csv.reader(f, delimiter = ",")
+except FileNotFoundError:
+    print("Soubor neexistuje")
+    exit()
+except PermissionError:
+    print("Neoprávněný přístup")
+    exit()   
 
 with open("vstupni_data.csv", encoding="utf-8") as f,\
     open("vystup_7dni.csv", "w", newline='', encoding="utf-8") as fout:
@@ -17,12 +30,13 @@ with open("vstupni_data.csv", encoding="utf-8") as f,\
         if radky % 7 == 1:                              
             vytiskni = row[0:3]
 
-        if radky % 7 == 0:                              
-            prumer_tyden_nezaokrouhlene = round((prutoky/7 ),4)      
+        if radky % 7 == 0:  
+            
+            prumer_tyden_nezaokrouhlene = round((prutoky/7),4)      
             prumer_tyden = (f'{prumer_tyden_nezaokrouhlene:.4f}')    
             vytiskni.append(prumer_tyden)            
             writer.writerow(vytiskni)           
-            prutoky = 0   
+            prutoky = 0
 
 
 with open("vstupni_data.csv", encoding="utf-8") as f,\
@@ -50,4 +64,4 @@ with open("vstupni_data.csv", encoding="utf-8") as f,\
             prutoky_rok = 0  
 
     
-
+# datetime knihovna
