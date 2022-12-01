@@ -1,9 +1,24 @@
-200980,QD,01.10.2016,   0.2620
-200980,QD,02.10.2016,   0.2140
-200980,QD,03.10.2016,   0.5000
-200980,QD,04.10.2016,   1.0900
-200980,QD,05.10.2016,   0.8640
-200980,QD,06.10.2016,   1.3000
-200980,QD,07.10.2016,   1.3100
-200980,QD,08.10.2016,   1.0600
-200980,QD,09.10.2016,   0.8600
+# Roční průměry
+with open("vstupni_data_carky.csv", encoding="utf-8") as f,\
+    open("vystup_rok.csv", "w", newline='', encoding="utf-8") as fout:
+    reader = csv.reader(f, delimiter = ",")
+    writer = csv.writer(fout)
+
+    # definovani proměnných    
+    prutoky_rok = 0               
+    radky_rok = 0                   
+    
+    # procházeni jednotlivých řádku
+    for row in reader:                               
+        
+        if radky_rok == 0:                             
+            vytiskni2 = row[0:3]
+
+        if radky_rok != int(row[3])
+
+        if radky_rok % 365 == 0:                              
+            prumer_rok_nezaokrouhlene = round((prutoky_rok/365 ),4)      
+            prumer_rok = (f'{prumer_rok_nezaokrouhlene:.4f}')    
+            vytiskni2.append(prumer_rok)            
+            writer.writerow(vytiskni2)           
+            prutoky_rok = 0  
