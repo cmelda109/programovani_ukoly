@@ -41,9 +41,9 @@ with open("bum.csv", encoding="utf-8") as f,\
             prutoky = 0
             radky = 0
 
-    if (radky-1) % 7 != 6:                                    # pokud se nakonci seznamu nachází méně, jak 7 řádků, vypočítá se průměr pouze z nich
-        prumer_prutok_tyden = prutoky / radky
-        zbytky = (f"{prumer_prutok_tyden:.4f}")
+    if (radky-1) % 7 != 6:                                    # pokud se na konci seznamu nachází méně, jak 7 řádků, vypočítá se průměr pouze z nich
+        prumer_prutok_tyden_zbytek = prutoky / radky
+        zbytky = (f"{prumer_prutok_tyden_zbytek:.4f}")
         vytiskni.append(zbytky) 
         writer.writerow(vytiskni)
 
