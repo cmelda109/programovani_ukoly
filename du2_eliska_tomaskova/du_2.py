@@ -30,9 +30,7 @@ with open("bum.csv", encoding="utf-8") as f,\
     for row in reader:      
         radky += 1
         prutoky += float(row[-1]) 
-        
-                            
-        
+                                          
         if radky % 7 == 1:                                   # prvni radek ze sedmi se ulozi do promenne vytiskni    
             vytiskni = row[0:-1]
 
@@ -43,9 +41,10 @@ with open("bum.csv", encoding="utf-8") as f,\
             prutoky = 0
             radky = 0
 
-    if (radky-1) % 7 != 6:
+    if (radky-1) % 7 != 6:                                    # pokud se nakonci seznamu nachází méně, jak 7 řádků, vypočítá se průměr pouze z nich
         prumer_prutok_tyden = prutoky / radky
-        vytiskni[-1] = (f"{prumer_prutok_tyden:.4f}")
+        zbytky = (f"{prumer_prutok_tyden:.4f}")
+        vytiskni.append(zbytky) 
         writer.writerow(vytiskni)
 
   
