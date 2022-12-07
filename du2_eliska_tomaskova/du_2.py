@@ -56,25 +56,24 @@ with open("vstupni_data_carky.csv", encoding="utf-8") as f,\
     # definovani proměnných    
     rok = 0
     prutoky_rok = 0
-    i = 0
+    radky = 0
     
     for row in reader:
         
         if rok == 0: 
             vytiskni2 = row[0:-1]   
         if rok != int(row[4]) and rok !=0: 
-            prumer_rok = (f'{(prutoky_rok/i):.4f}')
+            prumer_rok = (f'{(prutoky_rok/radky):.4f}')
             vytiskni2.append(prumer_rok)
             writer.writerow(vytiskni2)
             prutoky_rok = 0
-            i = 0
-            vytiskni2.clear  
+            radky = 0 
             vytiskni2 = row[0:-1]
-        i += 1
+        radky += 1
         prutoky_rok +=  float(row[5])
         rok = int(row[4]) 
 
-    zbyle_dny_prumer = (f'{(prutoky_rok/i):.4f}')
+    zbyle_dny_prumer = (f'{(prutoky_rok/radky):.4f}')
     vytiskni2.append((zbyle_dny_prumer)) 
     writer.writerow(vytiskni2)
   
