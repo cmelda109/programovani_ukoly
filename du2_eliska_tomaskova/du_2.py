@@ -16,7 +16,7 @@ except PermissionError:
 
 
 # Sedmidenní průměry
-with open("bum.csv", encoding="utf-8") as f,\
+with open("vstupni_data_carky.csv", encoding="utf-8") as f,\
     open("vystup_7dni.csv", "w", newline='', encoding="utf-8") as fout:
     reader = csv.reader(f, delimiter = ",")
     writer = csv.writer(fout)
@@ -47,6 +47,36 @@ with open("bum.csv", encoding="utf-8") as f,\
         vytiskni.append(zbytky) 
         writer.writerow(vytiskni)
 
+# Roční průměry
+with open("vstupni_data_carky.csv", encoding="utf-8") as f,\
+    open("vystup_rok.csv", "w", newline='', encoding="utf-8") as fout:
+    reader = csv.reader(f, delimiter = ",")
+    writer = csv.writer(fout)
+
+    # definovani proměnných    
+    rok = 0
+    prutoky_rok = 0
+    i = 0
+    
+    for row in reader:
+        
+        if rok == 0: 
+            vytiskni2 = row[0:-1]   
+        if rok != int(row[4]) and rok !=0: 
+            prumer_rok = (f'{(prutoky_rok/i):.4f}')
+            vytiskni2.append(prumer_rok)
+            writer.writerow(vytiskni2)
+            prutoky_rok = 0
+            i = 0
+            vytiskni2.clear  
+            vytiskni2 = row[0:-1]
+        i += 1
+        prutoky_rok +=  float(row[5])
+        rok = int(row[4]) 
+
+    zbyle_dny_prumer = (f'{(prutoky_rok/i):.4f}')
+    vytiskni2.append((zbyle_dny_prumer)) 
+    writer.writerow(vytiskni2)
   
 
 print("Úspěch!")
