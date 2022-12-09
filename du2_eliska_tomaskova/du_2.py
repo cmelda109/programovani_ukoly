@@ -1,6 +1,5 @@
 import csv
 
-
 # Kontrola existence/přístupnosti vstupního souboru
 try:
     with open("bum.csv", encoding="utf8") as fcsvinfile,\
@@ -14,17 +13,20 @@ except PermissionError:
     print("Neoprávněný přístup")
     exit()   
 
+# definovani proměnných    
+prutoky = 0               
+radky = 0 
+zbytek = 0 
+rok = 0
+prutoky_rok = 0
+radky = 0
+min_prutok, max_prutok = [],[]
 
 # Sedmidenní průměry
 with open("vstupni_data_carky.csv", encoding="utf-8") as f,\
     open("vystup_7dni.csv", "w", newline='', encoding="utf-8") as fout:
     reader = csv.reader(f, delimiter = ",")
-    writer = csv.writer(fout)
-
-    # definovani proměnných    
-    prutoky = 0               
-    radky = 0 
-    zbytek = 0                       
+    writer = csv.writer(fout)                     
     
     # procházeni jednotlivých řádku
     for row in reader:      
@@ -52,13 +54,8 @@ with open("vstupni_data_carky.csv", encoding="utf-8") as f,\
     open("vystup_rok.csv", "w", newline='', encoding="utf-8") as fout:
     reader = csv.reader(f, delimiter = ",")
     writer = csv.writer(fout)
-
-    # definovani proměnných    
-    rok = 0
-    prutoky_rok = 0
-    radky = 0
-    
-    for row in reader:
+   
+    for row in reader:                                              
         
         if rok == 0: 
             vytiskni2 = row[0:-1]   
@@ -73,10 +70,16 @@ with open("vstupni_data_carky.csv", encoding="utf-8") as f,\
         prutoky_rok +=  float(row[5])
         rok = int(row[4]) 
 
+        min_prutok.append(row[-1])
+        max_prutok.append(row[-1])
+
     zbyle_dny_prumer = (f'{(prutoky_rok/radky):.4f}')
     vytiskni2.append((zbyle_dny_prumer)) 
     writer.writerow(vytiskni2)
-  
+    
+    print ("Nejmenší průtok:", min(min_prutok))
+    print ("Největší průtok:", max(max_prutok))
+
 
 print("Úspěch!")
 
