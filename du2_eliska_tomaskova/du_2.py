@@ -94,8 +94,8 @@ try:
         vytiskni2.append((zbyle_dny_prumer)) 
         writer.writerow(vytiskni2)
 
-        print(f"Nejvyšší průtok byl dne {prutok_max_radek[4]}.{prutok_max_radek[3]}.{prutok_max_radek[2]}: {prutok_max}")
-        print(f"Nejnižší průtok byl dne {prutok_min_radek[4]}.{prutok_min_radek[3]}.{prutok_min_radek[2]}: {prutok_min}")
+        print(f"Nejvyšší průtok byl dne {prutok_max_radek[2]}.{prutok_max_radek[3]}.{prutok_max_radek[4]}: {prutok_max}")
+        print(f"Nejnižší průtok byl dne {prutok_min_radek[2]}.{prutok_min_radek[3]}.{prutok_min_radek[4]}: {prutok_min}")
 
 # Ošetření dalších chyb vstupního souboru
 except FileNotFoundError:
