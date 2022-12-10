@@ -1,5 +1,5 @@
 import csv
-
+g
 # Ošetření nulových a záporných dat ve sloupci průtoků
 with open("vstup.csv", encoding="utf-8") as csvfile:
     reader = csv.reader(csvfile, delimiter = ",")
