@@ -111,7 +111,6 @@ except ValueError:
     print(f"Vstupní data ze dne {row[2]}.{row[3]}.{row[4]} nejsou v číselném formátu")
     pass 
 
-print("Úspěch!")
 
 
     
